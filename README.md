@@ -46,7 +46,7 @@ This is a Python-based calculator that supports basic arithmetic operations as w
 
 2. Clone the repository:
     ```bash
-    git clone https://github.com/Vikalp013/python-calculator.git
+    git clone https://github.com/vikalp-tyagi/python-calculator.git
     ```
 
 3. Navigate to the project directory:
