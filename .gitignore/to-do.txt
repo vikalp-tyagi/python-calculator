@@ -1,0 +1,4 @@
+Add graphics
+Exception handling
+Shorten code
+Add operators and functions
