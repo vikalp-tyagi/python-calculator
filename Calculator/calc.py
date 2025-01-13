@@ -1,3 +1,27 @@
+'''
+==============================
+LICENSE AND COPYRIGHT NOTICE
+==============================
+
+python-calculator
+Copyright (C) 2024 vikalp-tyagi
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+For more information or to contact the author, please reach me at:
+Email: vickyt.1309@gmail.com
+
+See the GNU General Public License for more details:
+Link: https://www.gnu.org/licenses/
+'''
+
 import mpmath as mp
 
 # Operators
