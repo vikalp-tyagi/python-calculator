@@ -11,22 +11,22 @@ This is a Python-based calculator that supports basic arithmetic operations as w
 - **Precision**: Utilizes the `mpmath` library for high precision calculations.
 
 ## Operators Available:
-- \+ ~ Addition
-- \- ~ Subtraction
-- \* ~ Multiplication
-- / ~ Division
-- // ~ Floor Division
-- % ~ Remainder
-- ** ~ Exponentiation
-- sqrt ~ Square Root
-- root ~ Nth-root
-- log ~ Natural Logarithm
-- log10 ~ Log(base 10)
-- fac ~ Factorial
-- sin, cos, tan, sec, csc, cot ~ Trigonometric Functions
-- asin, acos, atan, asec, acsc, acot ~ Inverse Trigonometric Functions
-- rad ~ Radians to Degrees
-- deg ~ Degrees to Radians
+- `+` ~ Addition
+- `-` ~ Subtraction
+- `*` ~ Multiplication
+- `/` ~ Division
+- `//` ~ Floor Division
+- `%` ~ Remainder
+- `**` ~ Exponentiation
+- `sqrt` ~ Square Root
+- `root` ~ Nth-root
+- `log` ~ Natural Logarithm
+- `log10` ~ Log(base 10)
+- `fac` ~ Factorial
+- `sin`, `cos`, `tan`, `sec`, `csc`, `cot` ~ Trigonometric Functions
+- `asin`, `acos`, `atan`, `asec`, `acsc`, `acot` ~ Inverse Trigonometric Functions
+- `deg` ~ Radians to Degrees
+- `rad` ~ Degrees to Radians
 
 ## How to Use
 
