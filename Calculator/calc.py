@@ -42,8 +42,8 @@ operators = [
     'fac ~ Factorial', 
     'sin / cos / tan / sec / csc / cot ~ Trignometric Functions', 
     'asin / acos / atan / asec / acsc / acot ~ Inverse Trignometric Functions', 
-    'rad ~ Radians to Degrees', 
-    'deg ~ Degrees to Radian'
+    'deg ~ Radians to Degrees', 
+    'rad ~ Degrees to Radian'
 ]
 for operator in operators:
     print(operator)
@@ -84,8 +84,8 @@ operations = {
     'asec': lambda a, _: mp.degrees(mp.asec(a)),
     'acsc': lambda a, _: mp.degrees(mp.acsc(a)),
     'acot': lambda a, _: mp.degrees(mp.acot(a)),
-    'rad': lambda a, _: mp.degrees(a),
-    'deg': lambda a, _: mp.radians(a),
+    'deg': lambda a, _: mp.degrees(a),
+    'rad': lambda a, _: mp.radians(a),
 }
 
 # Main calculation loop
@@ -95,7 +95,7 @@ while True:
     if op in operations:
         # Handle single-input operations
         if op in ['sqrt', 'fac', 'log', 'log10', 'rad', 'deg']:
-            num = get_input('NUMBER :- ' if op not in ['rad', 'deg'] else 'ANGLE :- ', is_angle=(op in ['rad', 'deg']), to_radians=False)
+            num = get_input('VALUE :- ' if op not in ['rad', 'deg'] else 'ANGLE :- ', is_angle=(op in ['rad', 'deg']), to_radians=False)
             result = operations[op](num, None)
 
         # Handle angle-based operations
