@@ -103,7 +103,7 @@ operations = {
 }
 
 # Main code  
-def calculate():
+def calculator():
     """Main calculation loop."""
     
     operators()
@@ -140,4 +140,4 @@ def calculate():
 
 # Run the calculator
 if __name__ == "__main__":
-    calculate()
+    calculator()
