@@ -25,31 +25,45 @@ Link: https://www.gnu.org/licenses/
 import mpmath as mp
 
 # Operators
-print('For calculation use the following operators:')
+def operators():
+    """Display the list of supported operators."""
 
-operators = [
-    '+ ~ Addition', 
-    '- ~ Subtraction', 
-    '* ~ Multiplication', 
-    '/ ~ Division', 
-    '// ~ Floor Division', 
-    '% ~ Remainder', 
-    '** ~ Exponentation', 
-    'sqrt ~ Square Root', 
-    'root ~ Nth-root', 
-    'log ~ Natural Logarithm', 
-    'log10 ~ Log(base10)', 
-    'fac ~ Factorial', 
-    'sin / cos / tan / sec / csc / cot ~ Trignometric Functions', 
-    'asin / acos / atan / asec / acsc / acot ~ Inverse Trignometric Functions', 
-    'deg ~ Radians to Degrees', 
-    'rad ~ Degrees to Radian'
-]
-for operator in operators:
-    print(operator)
+    print("For calculation, use the following operators:")
+    operators = [
+        "+ ~ Addition",
+        "- ~ Subtraction", 
+        "* ~ Multiplication", 
+        "/ ~ Division",
+        "// ~ Floor Division", 
+        "% ~ Remainder", 
+        "** ~ Exponentiation",
+        "sqrt ~ Square Root", 
+        "root ~ Nth-root", 
+        "log ~ Natural Logarithm",
+        "log10 ~ Log(base10)", 
+        "fac ~ Factorial",
+        "sin / cos / tan / sec / csc / cot ~ Trigonometric Functions",
+        "asin / acos / atan / asec / acsc / acot ~ Inverse Trigonometric Functions",
+        "deg ~ Radians to Degrees", 
+        "rad ~ Degrees to Radians"
+    ]
+
+    print("\n".join(operators))
 
 # Input parsing
-def get_input(prompt, is_angle=False, to_radians=False):
+def get_input(prompt: str, is_angle: bool = False, to_radians: bool = False) -> mp.mpf:
+    """
+    Parse user input and return a valid mpmath number.
+    
+    Args:
+        prompt (str): The input prompt message.
+        is_angle (bool): Whether the input is an angle.
+        to_radians (bool): Whether to convert angles to radians.
+    
+    Returns:
+        mp.mpc: Parsed real or complex number.
+    """
+
     while True:
         try:
             value = input(prompt)
@@ -60,57 +74,70 @@ def get_input(prompt, is_angle=False, to_radians=False):
 
 # Operation mapping
 operations = {
-    '+': lambda a, b: a + b,
+    '+': lambda a, b: a + b, 
     '-': lambda a, b: a - b,
-    '*': lambda a, b: a * b,
-    '/': lambda a, b: a / b if b != 0 else 'Cannot divide by zero',
-    '//': lambda a, b: mp.floor(a / b) if b != 0 else 'Cannot divide by zero',
-    '%': lambda a, b: a % b if b != 0 else 'Cannot divide by zero',
+    '*': lambda a, b: a * b, 
+    '/': lambda a, b: a / b if b != 0 else 'Can\'t divide by zero',
+    '//': lambda a, b: mp.floor(a / b) if b != 0 else 'Can\'t divide by zero',
+    '%': lambda a, b: a % b if b != 0 else 'Can\'t divide by zero',
     '**': lambda a, b: a ** b,
-    'sqrt': lambda a, _: mp.sqrt(a),
+    'sqrt': lambda a, _: mp.sqrt(a), 
     'root': lambda a, b: a ** (1 / b),
-    'log': lambda a, _: mp.log(a),
+    'log': lambda a, _: mp.log(a), 
     'log10': lambda a, _: mp.log10(a),
     'fac': lambda a, _: mp.gamma(a + 1) if a.real >= 0 else 'Factorial not defined for negatives',
-    'sin': lambda a, _: mp.sin(a),
-    'cos': lambda a, _: mp.cos(a),
+    'sin': lambda a, _: mp.sin(a), 
+    'cos': lambda a, _: mp.cos(a), 
     'tan': lambda a, _: mp.tan(a),
-    'sec': lambda a, _: 1 / mp.cos(a),
-    'csc': lambda a, _: 1 / mp.sin(a),
+    'sec': lambda a, _: 1 / mp.cos(a), 
+    'csc': lambda a, _: 1 / mp.sin(a), 
     'cot': lambda a, _: 1 / mp.tan(a),
-    'asin': lambda a, _: mp.degrees(mp.asin(a)),
+    'asin': lambda a, _: mp.degrees(mp.asin(a)), 
     'acos': lambda a, _: mp.degrees(mp.acos(a)),
-    'atan': lambda a, _: mp.degrees(mp.atan(a)),
+    'atan': lambda a, _: mp.degrees(mp.atan(a)), 
     'asec': lambda a, _: mp.degrees(mp.asec(a)),
-    'acsc': lambda a, _: mp.degrees(mp.acsc(a)),
+    'acsc': lambda a, _: mp.degrees(mp.acsc(a)), 
     'acot': lambda a, _: mp.degrees(mp.acot(a)),
-    'deg': lambda a, _: mp.degrees(a),
+    'deg': lambda a, _: mp.degrees(a), 
     'rad': lambda a, _: mp.radians(a),
 }
 
-# Main calculation loop
-while True:
-    op = input('\nOPERATOR :- ').strip()
+# Main code  
+def calculate():
+    """Main calculation loop."""
     
-    if op in operations:
-        # Handle single-input operations
-        if op in ['sqrt', 'fac', 'log', 'log10', 'rad', 'deg']:
-            num = get_input('NUMBER :- ' if op not in ['rad', 'deg'] else 'ANGLE :- ', is_angle=(op in ['rad', 'deg']), to_radians=False)
-            result = operations[op](num, None)
+    operators()
 
-        # Handle angle-based operations
-        elif op in ['sin', 'cos', 'tan', 'sec', 'csc', 'cot', 'asin', 'acos', 'atan', 'asec', 'acsc', 'acot']:
-            angle = get_input('ANGLE (in degrees) :- ', is_angle=True, to_radians=True)
-            result = operations[op](angle, None)
+    while True:
+        op = input("\nEnter an operator (or 'exit' to quit): ").strip().lower()
+        
+        if op == "exit":
+            print("Goodbye!")
+            break
 
-        # Handle binary operations
+        if op in operations:
+            # Handle single-input operations
+            if op in ['sqrt', 'fac', 'log', 'log10', 'rad', 'deg']:
+                num = get_input("Enter a number: " if op not in ['rad', 'deg'] else "Enter an angle: ")
+                result = operations[op](num, None)
+
+            # Handle angle-based operations
+            elif op in ['sin', 'cos', 'tan', 'sec', 'csc', 'cot', 'asin', 'acos', 'atan', 'asec', 'acsc', 'acot']:
+                angle = get_input("Enter an angle (in degrees): ", is_angle=True, to_radians=True)
+                result = operations[op](angle, None)
+
+            # Handle binary operations
+            else:
+                num1 = get_input("Enter the first number: ")
+                num2 = get_input("Enter the second number: ")
+                result = operations[op](num1, num2)
+
+            # Output result
+            print(f"\nResult: {result}")
+
         else:
-            num1 = get_input('NUMBER 1 :- ')
-            num2 = get_input('NUMBER 2 :- ')
-            result = operations[op](num1, num2)
+            print("Invalid operator! Please choose a valid operator.")
 
-        # Output
-        print(f'\nRESULT: {result}')
-
-    else:
-        print("\nInvalid operator! Please use a valid operator.")
+# Run the calculator
+if __name__ == "__main__":
+    calculate()
