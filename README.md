@@ -10,7 +10,7 @@ This is a Python-based calculator that supports basic arithmetic operations as w
 - **Angle Conversion**: Degrees to Radians and vice versa.
 - **Precision**: Utilizes the `mpmath` library for high precision calculations.
 
-## Operators Available:
+## Operators Available
 - `+` ~ Addition
 - `-` ~ Subtraction
 - `*` ~ Multiplication
