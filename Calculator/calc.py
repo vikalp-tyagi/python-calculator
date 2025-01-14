@@ -95,7 +95,7 @@ while True:
     if op in operations:
         # Handle single-input operations
         if op in ['sqrt', 'fac', 'log', 'log10', 'rad', 'deg']:
-            num = get_input('VALUE :- ' if op not in ['rad', 'deg'] else 'ANGLE :- ', is_angle=(op in ['rad', 'deg']), to_radians=False)
+            num = get_input('NUMBER :- ' if op not in ['rad', 'deg'] else 'ANGLE :- ', is_angle=(op in ['rad', 'deg']), to_radians=False)
             result = operations[op](num, None)
 
         # Handle angle-based operations
