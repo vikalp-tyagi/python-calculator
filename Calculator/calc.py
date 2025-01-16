@@ -51,7 +51,7 @@ def operators():
     print("\n".join(operators))
 
 # Input parsing
-def get_input(prompt: str, is_angle: bool = False, to_radians: bool = False) -> mp.mpf:
+def get_input(prompt: str, is_angle: bool = False, to_radians: bool = False):
     """
     Parse user input and return a valid mpmath number.
     
