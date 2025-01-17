@@ -24,7 +24,7 @@ Link: https://www.gnu.org/licenses/
 
 import mpmath as mp
 
-# Operators
+# OPERATORS
 def operators():
     """Display the list of supported operators."""
 
@@ -50,7 +50,7 @@ def operators():
 
     print("\n".join(operators))
 
-# Input parsing
+# INPUT PARSING
 def get_input(prompt: str, is_angle: bool = False, to_radians: bool = False):
     """
     Parse user input and return a valid mpmath number.
@@ -72,7 +72,7 @@ def get_input(prompt: str, is_angle: bool = False, to_radians: bool = False):
         except Exception:
             print("Invalid input! Please enter a valid number.")
 
-# Operation mapping
+# OPERATION MAPPING
 operations = {
     '+': lambda a, b: a + b, 
     '-': lambda a, b: a - b,
@@ -102,7 +102,7 @@ operations = {
     'rad': lambda a, _: mp.radians(a),
 }
 
-# Main code  
+# MAIN  
 def calculator():
     """Main calculation loop."""
     
@@ -116,28 +116,23 @@ def calculator():
             break
 
         if op in operations:
-            # Handle single-input operations
             if op in ['sqrt', 'fac', 'log', 'log10', 'rad', 'deg']:
                 num = get_input("Enter a number: " if op not in ['rad', 'deg'] else "Enter an angle: ")
                 result = operations[op](num, None)
-
-            # Handle angle-based operations
+                
             elif op in ['sin', 'cos', 'tan', 'sec', 'csc', 'cot', 'asin', 'acos', 'atan', 'asec', 'acsc', 'acot']:
                 angle = get_input("Enter an angle (in degrees): ", is_angle=True, to_radians=True)
                 result = operations[op](angle, None)
-
-            # Handle binary operations
             else:
                 num1 = get_input("Enter the first number: ")
                 num2 = get_input("Enter the second number: ")
                 result = operations[op](num1, num2)
 
-            # Output result
             print(f"\nResult: {result}")
 
         else:
             print("Invalid operator! Please choose a valid operator.")
 
-# Run the calculator
+# RUN PROGRAM
 if __name__ == "__main__":
     calculator()
